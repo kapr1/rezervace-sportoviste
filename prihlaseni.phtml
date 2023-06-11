@@ -1,0 +1,29 @@
+<?php
+$titulek='přihlášení';
+require("top_html.phtml");
+?>
+<link rel="stylesheet" href="styl.css">  
+
+<h1>Přihlášení</h1>
+
+<form method="post">
+    <div>
+        <label for="login">Uživatelské jméno:</label>
+        <input type="text" name="login" required>
+    </div>
+   
+    <div>
+        <label for="login">Heslo:</label>
+        <input type="password" name="heslo" required>
+    </div>
+    <?php
+    if (isset($_POST["login"]) && !prihlasUzivatele($dbSpojeni, $_POST)) {
+        echo '<div class="error-message">Chybně zadané uživatelské jméno nebo heslo.</div>';
+    }
+    ?>
+    <div>
+        <input type="submit" value="Přihlásit se">
+    </div>
+</form>     
+    
+<p>Ještě nemáte účet? Zaregistrujte se <a href="registrace.php">zde</a>.</p>

@@ -1,0 +1,29 @@
+<?php 
+require("top_html.phtml"); 
+?>
+
+<link rel="stylesheet" href="navigace.css">
+
+<main>
+<div class="container">
+  <!-- Navigace ve sloupci -->
+  <nav class="vertical-nav">
+    <ul>
+      <li><a href="sportoviste.php">Sportoviště</a></li>
+      <li><a href="celkem.php">Celkem</a></li>
+      <li><a href="nastaveni.php">Nastavení</a></li>
+    </ul>
+  </nav>
+  <!-- Navigace v řádku -->
+  <nav class="horizontal-nav">
+    <ul>
+      <li class="user">
+        <?php
+        session_start();
+        require("odhlaseni.php");
+        ?>
+      </li>
+    </ul>
+  </nav>
+</div>
+</main>

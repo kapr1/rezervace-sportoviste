@@ -1,0 +1,96 @@
+/* Vertikální navigace */
+.vertical-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 150px;
+  background-color: #d3d2d2;
+}
+
+.vertical-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 90px;
+  background-color: #a6a6a6;
+}
+
+.vertical-nav li {
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 3px;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+}
+
+.vertical-nav li a {
+  text-decoration: none;
+  color: #000;
+  display: block; /* Ensure the entire area is clickable */
+}
+
+.vertical-nav li:hover {
+  background-color: #eff4f0;
+  cursor: pointer;
+}
+
+/* Navigace v řádku */
+.horizontal-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 150px; /* Šířka navigace ve sloupci */
+  background-color: #d3d2d2;
+  height: 90px; /* Zvýšení výšky navigace */
+  line-height: 60px; /* Zarovnání textu ve středu navigace */
+  font-weight: bold; /* Tučné písmo */
+}
+
+.horizontal-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.horizontal-nav .user {
+  float: right;
+  margin-right: 20px;
+}
+
+.logged-in {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.odhlasit {
+  background-color: #a6a6a6;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.odhlasit:hover {
+  background-color: #eff4f0;
+}
+.vertical-nav li {
+  padding: 0; /* Remove padding from the list item */
+  text-align: center;
+  margin-bottom: 3px;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+}
+
+.vertical-nav li a {
+  display: block; /* Ensure the entire area is clickable */
+  padding: 10px; /* Add padding to create a clickable area */
+  text-decoration: none;
+  color: #000;
+}
+
+.vertical-nav li:hover {
+  background-color: #eff4f0;
+  cursor: pointer;
+}

@@ -1,0 +1,114 @@
+<style>
+/* Rezervační formulář */
+#resForm {
+  width: 60%;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+#resForm label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#resForm input,
+#resForm select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#resForm input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+#resForm input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 10px;
+  background-color: #ffe6e6;
+  border: 1px solid #ff9999;
+  border-radius: 4px;
+  padding: 10px;
+}
+h1 {
+  z-index: 1;
+  margin-top: 100px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+</style>
+
+<?php
+$titulek = "rezervace";
+require("top_html.phtml");
+?>
+
+<h1>Rezervace</h1>
+
+<form id="resForm" method="post">
+  <label>Jméno</label>
+  <input type="text" required name="jmeno">
+
+  <label>Přijmení</label>
+  <input type="text" required name="prijmeni">
+
+  <label>Telefonní číslo</label>
+  <input type="number" required name="telefon" pattern="[0-9]{9}" title="Telefonní číslo musí obsahovat 9 číslic">
+
+  <label>Poznámky</label>
+  <input type="text" name="poznamky">
+
+  <?php
+  $mindate = date("Y-m-d");
+  ?>
+
+  <label>Datum rezervace</label>
+  <input type="date" required name="datum">
+
+  <label>Čas rezervace (od)</label>
+  <select required name="casOd">
+    <?php
+    $startHour = 8;
+    $endHour = 22;
+
+    for ($hour = $startHour; $hour <= $endHour; $hour++) {
+      for ($minute = 0; $minute < 60; $minute += 60) {
+        $time = sprintf("%02d:%02d", $hour, $minute);
+        echo "<option value=\"$time\">$time</option>";
+      }
+    }
+    ?>
+  </select>
+
+  <label>Čas rezervace (do)</label>
+  <select required name="casDo">
+    <?php
+    $startHour = 8;
+    $endHour = 22;
+
+    for ($hour = $startHour; $hour <= $endHour; $hour++) {
+      for ($minute = 0; $minute < 60; $minute += 60) {
+        $time = sprintf("%02d:%02d", $hour, $minute);
+        echo "<option value=\"$time\">$time</option>";
+      }
+    }
+    ?>
+  </select>
+
+  <?php if (!empty($errorMessage2)) { ?>
+    <div class="error"><?php echo $errorMessage2; ?></div>
+  <?php } ?>
+
+  <input type="submit" name="submit" value="Potvrdit">
+</form>
+
